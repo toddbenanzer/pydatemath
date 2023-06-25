@@ -1,10 +1,18 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
+# constants
 START_OF_WEEK = 'Saturday'
 
 
 # conversion functions
+def today():
+    """Returns a date string for today."""
+    utc_time = datetime.now(timezone.utc)
+    nyc_timezone = timezone(timedelta(hours=-5), name="EST")
+    return datetime_to_datestr(utc_time.astimezone(nyc_timezone).date())
+
+
 def datestr_to_datetime(datestr):
     """Converts a date string in yyyy-mm-dd format to a datetime object."""
     return datetime.strptime(datestr, '%Y-%m-%d')

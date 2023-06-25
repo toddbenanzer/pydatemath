@@ -198,3 +198,7 @@ def test_get_wob1():
 
 def test_get_wobn1():
     assert datemath.get_wobn1('2023-06-24') == '2023-06-23'
+
+
+def test_today():
+    assert datemath.today() == datetime.now().strftime('%Y-%m-%d')
