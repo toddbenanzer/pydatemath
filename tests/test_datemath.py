@@ -140,6 +140,38 @@ def test_add_weeks():
     assert datemath.add_weeks('2023-06-24', -12) == '2023-04-07'
 
 
+def test_start_of_year():
+    assert datemath.start_of_year('2023-06-24') == '2023-01-01'
+
+
+def test_end_of_year():
+    assert datemath.end_of_year('2023-06-24') == '2023-12-31'
+
+
+def test_start_of_prev_year():
+    assert datemath.start_of_prev_year('2023-06-24') == '2022-01-01'
+
+
+def test_end_of_prev_year():
+    assert datemath.end_of_prev_year('2023-06-24') == '2022-12-31'
+
+
+def test_start_of_next_year():
+    assert datemath.start_of_next_year('2023-06-24') == '2024-01-01'
+
+
+def test_end_of_next_year():
+    assert datemath.end_of_next_year('2023-06-24') == '2024-12-31'
+
+
+def test_add_years():
+    assert datemath.add_years('2023-06-24', 0) == '2023-12-31'
+    assert datemath.add_years('2023-06-24', 1) == '2024-12-31'
+    assert datemath.add_years('2023-06-24', 2) == '2025-12-31'
+    assert datemath.add_years('2023-06-24', -1) == '2022-12-31'
+    assert datemath.add_years('2023-06-24', -2) == '2021-12-31'
+
+
 def test_get_mob1():
     assert datemath.get_mob1('2023-06-24') == '2023-06-30'
 
@@ -165,4 +197,4 @@ def test_get_wob1():
 
 
 def test_get_wobn1():
-    assert datemath.get_wob1('2023-06-24') == '2023-06-23'
+    assert datemath.get_wobn1('2023-06-24') == '2023-06-23'
