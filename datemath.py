@@ -23,6 +23,20 @@ def datetime_to_datestr(date):
     return date.strftime('%Y-%m-%d')
 
 
+def datetime_to_monthstr(date):
+    """Converts a datetime object to a date string in yyyymm format."""
+    return date.strftime('%Y%m')
+
+
+def monthstr_to_datetime(monthstr):
+    """Converts a month string in yyyymm format to a datetime object."""
+    year = int(monthstr[:4])
+    month = int(monthstr[4:])
+    day = 1
+    date = datetime(year, month, day)
+    return end_of_month(datetime_to_datestr(date))
+
+
 # month transformations
 def start_of_month(datestr):
     """Returns a date string for the beginning of the month."""
